@@ -1,18 +1,30 @@
 import { auth, firestore } from "./firebase";
-import Button from "react-bootstrap/Button";
+import UserPage from "./Components/UserPage/UserPage";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import PasswordReset from "./Components/PasswordReset/PasswordReset";
+import SignIn from "./Components/SignIn/SignIn";
+import SignUp from "./Components/SignUp/SignUp";
 import "./App.css";
 
 const App = () => {
   console.log(auth, firestore);
-  const clickBtn = () => {
-    console.log("click");
-  };
+
+  let user = "";
 
   return (
-    <Button variant="primary" onClick={clickBtn}>
-      {" "}
-      CLICKER
-    </Button>
+    <>
+      {user ? (
+        <UserPage />
+      ) : (
+        <Router>
+          <Switch>
+            <Route exact path="/" component={SignIn} />
+            <Route path="/signUp" component={SignUp} />
+            <Route path="/passwordReset" component={PasswordReset} />
+          </Switch>
+        </Router>
+      )}
+    </>
   );
 };
 
