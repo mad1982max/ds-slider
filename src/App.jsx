@@ -1,6 +1,8 @@
+import { auth, firestore } from "./firebase";
 import "./App.css";
 
 const App = () => {
+  console.log(auth, firestore);
   const clickBtn = () => {
     console.log("click");
   };
