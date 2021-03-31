@@ -1,4 +1,5 @@
 import { auth, firestore } from "./firebase";
+import Button from "react-bootstrap/Button";
 import "./App.css";
 
 const App = () => {
@@ -7,7 +8,12 @@ const App = () => {
     console.log("click");
   };
 
-  return <button onClick={clickBtn}> CLICK</button>;
+  return (
+    <Button variant="primary" onClick={clickBtn}>
+      {" "}
+      CLICKER
+    </Button>
+  );
 };
 
 export default App;
