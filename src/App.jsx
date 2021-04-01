@@ -12,7 +12,7 @@ const App = () => {
   let user = "";
 
   return (
-    <>
+    <div className="app">
       {user ? (
         <UserPage />
       ) : (
@@ -24,7 +24,7 @@ const App = () => {
           </Switch>
         </Router>
       )}
-    </>
+    </div>
   );
 };
 
