@@ -1,5 +1,5 @@
 .signInForm-wrapper {
-  background: rgb(243, 241, 241);
+  background: rgb(206, 206, 206);
   width: 50%;
   position: absolute;
   top: 50%;
@@ -28,12 +28,17 @@
 }
 
 .signIn-btn {
-  background-color: rgba(128, 0, 128, 0.9);
+  background-color: rgba(38, 71, 34, 0.9);
   color: white;
   font-size: 1.2rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .signIn-btn:hover {
-  background-color: rgba(128, 0, 128);
+  background-color: rgba(38, 71, 34, 1);
+}
+
+.signIn-btn:disabled {
+  background-color: rgb(139, 22, 22);
+  cursor: not-allowed;
 }

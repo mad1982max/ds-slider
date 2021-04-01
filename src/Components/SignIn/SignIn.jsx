@@ -7,16 +7,18 @@ const SignIn = () => {
   return (
     <>
       <Formik
+        validateOnChange
         initialValues={{
           login: "",
           password: "",
         }}
         validationSchema={SignInSchema}
         onSubmit={(values) => {
-          console.log("submit", values);
+          console.log("submit:", values);
         }}
       >
-        {({ errors, touched }) => {
+        {({ errors, isValid, dirty }) => {
+          console.log(errors, isValid, dirty);
           return (
             <>
               <div className="signInForm-wrapper d-flex flex-column">
@@ -34,8 +36,12 @@ const SignIn = () => {
                   <Field label="PASSWORD" type="password" name="password" />
                   <ErrorMessage name="password" component={ErrorMsg} />
 
-                  <button className="signIn-btn mt-4 mb-2" type="submit">
-                    ENTER
+                  <button
+                    disabled={!(isValid && dirty)}
+                    className="signIn-btn mt-4 mb-2"
+                    type="submit"
+                  >
+                    {isValid && dirty ? "ENTER" : "Fill in all fields first"}
                   </button>
                 </Form>
                 <div className="signUpLink p-1">
