@@ -24,9 +24,9 @@ const SignUp = () => {
             <>
               <div className="signInForm-wrapper d-flex flex-column">
                 <div className="logo p-2">HELLO, USER!</div>
-                <div className="info-text p-2">please, sign in</div>
+                <div className="info-text p-1">please, sign in</div>
                 <Form className="signInForm d-flex flex-column">
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="name">NAME</label>
                   <Field label="name" type="text" name="name" />
                   <ErrorMessage name="name" component={ErrorMsg} />
 
@@ -46,7 +46,7 @@ const SignUp = () => {
                     {isValid && dirty ? "Sign in" : "Fill in all fields first"}
                   </button>
                 </Form>
-                <div className="signUpLink p-1">
+                <div className="signUpLink p-1 mb-2">
                   Return to Sign In? <Link to="/">Click here</Link>
                 </div>
               </div>

@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import ErrorMsg from "../ErrorMsg/ErrorMsg";
 import { SignInSchema } from "../../helpers/validation";
+import { useHistory } from "react-router-dom";
+import { signInWithGoogle } from "../../firebase";
 import "./signIn.css";
 
 const SignIn = () => {
+  const history = useHistory();
   return (
     <>
       <Formik
@@ -15,6 +18,7 @@ const SignIn = () => {
         validationSchema={SignInSchema}
         onSubmit={(values) => {
           console.log("submit:", values);
+          history.push("/userPage");
         }}
       >
         {({ errors, isValid, dirty }) => {
@@ -22,7 +26,7 @@ const SignIn = () => {
             <>
               <div className="signInForm-wrapper d-flex flex-column">
                 <div className="logo p-2">HELLO, USER!</div>
-                <div className="info-text p-2">
+                <div className="info-text p-1">
                   please, enter to your account
                 </div>
                 <Form className="signInForm d-flex flex-column">
@@ -35,17 +39,31 @@ const SignIn = () => {
                   <ErrorMessage name="password" component={ErrorMsg} />
 
                   <button
-                    disabled={!(isValid && dirty)}
+                    // disabled={!(isValid && dirty)}
                     className="signIn-btn mt-4 mb-2"
                     type="submit"
                   >
                     {isValid && dirty ? "Sign in" : "Fill in all fields first"}
                   </button>
+                  <div className="separator">
+                    <span>or</span>
+                  </div>
+                  <button
+                    type="button"
+                    className="signInWithGoogle mt-2 mb-2"
+                    onClick={() => {
+                      signInWithGoogle();
+                      // history.push("/userPage");
+                    }}
+                  >
+                    Sign in with GOOGLE
+                  </button>
                 </Form>
+
                 <div className="signUpLink p-1">
                   Don't have an account? <Link to="/signUp">Sign Up</Link>
                 </div>
-                <div className="forgotPSW p-1">
+                <div className="forgotPSW p-1 mb-2">
                   <a href="#">Forgot Password?</a>
                 </div>
               </div>

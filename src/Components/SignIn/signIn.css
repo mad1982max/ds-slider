@@ -28,6 +28,7 @@
   text-align: left;
   margin-top: 15px;
   font-weight: 500;
+  margin-bottom: 2px;
 }
 
 .signInForm input {
@@ -43,6 +44,13 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
+.signInWithGoogle {
+  background-color: rgba(38, 71, 34, 0.9);
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 .signIn-btn:hover {
   background-color: rgba(38, 71, 34, 1);
 }
@@ -50,4 +58,20 @@
 .signIn-btn:disabled {
   background-color: rgb(139, 22, 22);
   cursor: not-allowed;
+}
+
+.info-text {
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.separator span {
+  display: inline-block;
+  background: rgb(44, 44, 44);
+  color: aliceblue;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
 }
