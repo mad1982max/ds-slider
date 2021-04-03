@@ -1,5 +1,5 @@
 .signInForm-wrapper {
-  background: rgb(206, 206, 206);
+  background: rgb(247, 245, 245);
   width: 50%;
   position: absolute;
   top: 50%;
@@ -11,6 +11,14 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.logo {
+  font-size: 1.5rem;
+}
+
+.info-text {
+  font-size: 1.2rem;
+}
+
 .signInForm {
   width: 60%;
   margin: 0 auto;
@@ -19,6 +27,7 @@
 .signInForm label {
   text-align: left;
   margin-top: 15px;
+  font-weight: 500;
 }
 
 .signInForm input {
