@@ -3,9 +3,25 @@ import { Link } from "react-router-dom";
 import ErrorMsg from "../ErrorMsg/ErrorMsg";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { ForgotPasswordSchema } from "../../helpers/validation";
+import { waitingBeforeErrMsgDisapp } from "../../constants";
+import { auth } from "../../firebase";
 
 const PasswordReset = () => {
-  const [error, setError] = useState(null);
+  const [msg, setMsg] = useState(null);
+  const sendResetEmail = (email) => {
+    auth
+      .sendPasswordResetEmail(email)
+      .then((response) => {
+        console.log("reset", response);
+        setMsg("Reset instruction are sent. Please, check your mail!");
+        setTimeout(() => setMsg(""), waitingBeforeErrMsgDisapp);
+      })
+      .catch((error) => {
+        setMsg(error.message);
+        setTimeout(() => setMsg(""), waitingBeforeErrMsgDisapp);
+      });
+  };
+
   return (
     <>
       <Formik
@@ -15,6 +31,7 @@ const PasswordReset = () => {
         validationSchema={ForgotPasswordSchema}
         onSubmit={(values) => {
           console.log("submit:", values);
+          sendResetEmail(values.email);
         }}
       >
         {({ isValid, dirty }) => {
@@ -38,7 +55,7 @@ const PasswordReset = () => {
                       : "Fill in email field"}
                   </button>
                 </Form>
-                {error && <ErrorMsg msg={error} />}
+                {msg && <ErrorMsg msg={msg} />}
                 <div className="signUpLink p-1">
                   Return to <Link to="/">Sign In</Link>
                 </div>
