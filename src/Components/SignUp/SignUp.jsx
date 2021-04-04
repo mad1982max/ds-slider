@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ErrorMsg from "../ErrorMsg/ErrorMsg";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { SignUpSchema } from "../../helpers/validation";
 import { auth, generateUserDocument } from "../../firebase";
 import "./signUp.css";
@@ -26,10 +26,10 @@ const SignUp = () => {
       <Formik
         validateOnChange
         initialValues={{
-          name: "Maksym Bezrodnyi",
-          email: "mad1982max@gmail.com",
-          password: "12345678",
-          confirmPassword: "12345678",
+          name: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
         }}
         validationSchema={SignUpSchema}
         onSubmit={(values) => {
@@ -65,7 +65,7 @@ const SignUp = () => {
                   <ErrorMessage name="confirmPassword" component={ErrorMsg} />
 
                   <button
-                    // disabled={!(isValid && dirty)}
+                    disabled={!(isValid && dirty)}
                     className="signIn-btn mt-4 mb-2"
                     type="submit"
                   >

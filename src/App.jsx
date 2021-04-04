@@ -1,6 +1,6 @@
+import { useContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PasswordReset from "./Components/PasswordReset/PasswordReset";
-import { useContext } from "react";
 import SignIn from "./Components/SignIn/SignIn";
 import SignUp from "./Components/SignUp/SignUp";
 import UserPage from "./Components/UserPage/UserPage";

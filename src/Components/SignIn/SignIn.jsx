@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import ErrorMsg from "../ErrorMsg/ErrorMsg";
-import { SignInSchema } from "../../helpers/validation";
-import { useHistory } from "react-router-dom";
-import { auth, signInWithGoogle } from "../../firebase";
 import { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import ErrorMsg from "../ErrorMsg/ErrorMsg";
+import { auth, signInWithGoogle } from "../../firebase";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { SignInSchema } from "../../helpers/validation";
 import "./signIn.css";
 
 const SignIn = () => {
@@ -20,8 +19,8 @@ const SignIn = () => {
     <>
       <Formik
         initialValues={{
-          email: "mad1982max@gmail.com",
-          password: "12345678",
+          email: "",
+          password: "",
         }}
         validationSchema={SignInSchema}
         onSubmit={(values) => {
@@ -48,7 +47,7 @@ const SignIn = () => {
                   <ErrorMessage name="password" component={ErrorMsg} />
 
                   <button
-                    // disabled={!(isValid && dirty)}
+                    disabled={!(isValid && dirty)}
                     className="signIn-btn mt-4 mb-2"
                     type="submit"
                   >

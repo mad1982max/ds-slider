@@ -1,7 +1,7 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
+import UserCard from "../UserCard/UserCard";
 import { UserContext } from "../../Providers/UserProvider";
 import { auth } from "../../firebase";
-import UserCard from "../UserCard/UserCard";
 import "./userPage.css";
 
 const UserPage = () => {

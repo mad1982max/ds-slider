@@ -2,7 +2,6 @@ import defaultImg from "../../Assets/img/avatar.png";
 import "./userCard.css";
 
 const UserCard = ({ name, email, photoSrc }) => {
-  console.log("photoSrc", photoSrc);
   return (
     <div className="userCard">
       <div className="imageWrapper">
