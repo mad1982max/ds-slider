@@ -16,6 +16,10 @@ const SignUpSchema = Yup.object().shape({
     .min(4, "Too Short!")
     .max(25, "Too Long!")
     .required("Required"),
+  confirmPassword: Yup.string().when("password", {
+    is: (val) => (val && val.length > 0 ? true : false),
+    then: Yup.string().oneOf([Yup.ref("password")], "Passwords missmatched!"),
+  }),
 });
 
 export { SignInSchema, SignUpSchema };

@@ -1,13 +1,13 @@
-import { useContext } from "react";
-import UserContext from "../../Providers/UserProvider";
+import { useContext, useState } from "react";
+import { UserContext } from "../../Providers/UserProvider";
 import { auth } from "../../firebase";
-import { useHistory } from "react-router-dom";
+import UserCard from "../UserCard/UserCard";
 import "./userPage.css";
 
 const UserPage = () => {
-  const history = useHistory();
   const user = useContext(UserContext);
-  console.log("user", user);
+  const { displayName, email, photoURL } = user;
+
   return (
     <>
       <header className="header">
@@ -15,15 +15,12 @@ const UserPage = () => {
           className="signOut"
           onClick={() => {
             auth.signOut();
-            // history.push("/");
           }}
         >
           Sign out
         </button>
       </header>
-      <div className="userCard">
-        <div className="name">maks</div>
-      </div>
+      <UserCard name={displayName} email={email} photoSrc={photoURL}></UserCard>
     </>
   );
 };

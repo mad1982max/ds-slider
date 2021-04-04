@@ -24,7 +24,7 @@ const SignUp = () => {
             <>
               <div className="signInForm-wrapper d-flex flex-column">
                 <div className="logo p-2">HELLO, USER!</div>
-                <div className="info-text p-1">please, sign in</div>
+                <div className="info-text p-1">please, sign up</div>
                 <Form className="signInForm d-flex flex-column">
                   <label htmlFor="name">NAME</label>
                   <Field label="name" type="text" name="name" />
@@ -37,6 +37,14 @@ const SignUp = () => {
                   <label htmlFor="password">PASSWORD</label>
                   <Field label="PASSWORD" type="password" name="password" />
                   <ErrorMessage name="password" component={ErrorMsg} />
+
+                  <label htmlFor="confirmPassword">CONFIRM PASSWORD</label>
+                  <Field
+                    label="confirmPassword"
+                    type="password"
+                    name="confirmPassword"
+                  />
+                  <ErrorMessage name="confirmPassword" component={ErrorMsg} />
 
                   <button
                     disabled={!(isValid && dirty)}
