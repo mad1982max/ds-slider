@@ -1,9 +1,11 @@
 import "./errorMsg.css";
 
-const ErrorMsg = ({ children }) => (
-  <>
-    <div className="error">{children}</div>
-  </>
-);
+const ErrorMsg = ({ msg, children }) => {
+  return (
+    <>
+      <div className="error">{msg || children}</div>
+    </>
+  );
+};
 
 export default ErrorMsg;

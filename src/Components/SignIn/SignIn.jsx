@@ -3,22 +3,31 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import ErrorMsg from "../ErrorMsg/ErrorMsg";
 import { SignInSchema } from "../../helpers/validation";
 import { useHistory } from "react-router-dom";
-import { signInWithGoogle } from "../../firebase";
+import { auth, signInWithGoogle } from "../../firebase";
+import { useState } from "react";
 import "./signIn.css";
 
 const SignIn = () => {
+  const [error, setError] = useState(null);
+  const signInWithEmailAndPasswordHandler = (email, password) => {
+    auth.signInWithEmailAndPassword(email, password).catch((error) => {
+      setError(error.message);
+      setTimeout(() => setError(""), 3000);
+    });
+  };
   const history = useHistory();
   return (
     <>
       <Formik
         initialValues={{
-          email: "",
-          password: "",
+          email: "mad1982max@gmail.com",
+          password: "12345678",
         }}
         validationSchema={SignInSchema}
         onSubmit={(values) => {
           console.log("submit:", values);
-          history.push("/userPage");
+          const { email, password } = values;
+          signInWithEmailAndPasswordHandler(email, password);
         }}
       >
         {({ errors, isValid, dirty }) => {
@@ -53,13 +62,12 @@ const SignIn = () => {
                     className="signInWithGoogle mt-2 mb-2"
                     onClick={() => {
                       signInWithGoogle();
-                      // history.push("/userPage");
                     }}
                   >
                     Sign in with GOOGLE
                   </button>
                 </Form>
-
+                {error && <ErrorMsg msg={error} />}
                 <div className="signUpLink p-1">
                   Don't have an account? <Link to="/signUp">Sign Up</Link>
                 </div>
