@@ -1,14 +1,15 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+console.log(process.env);
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDJY26ez_JrePkMIunOyO0fB3tJZNEofmU",
-  authDomain: "react-ds-auth.firebaseapp.com",
-  projectId: "react-ds-auth",
-  storageBucket: "react-ds-auth.appspot.com",
-  messagingSenderId: "1028859621604",
-  appId: "1:1028859621604:web:9b2bd3b7d34042df267cf1",
+  apiKey: process.env.REACT_APP_FB_API_KEY,
+  authDomain: process.env.REACT_APP_FB_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_FB_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FB_STORAGE_BACKET,
+  messagingSenderId: process.env.REACT_APP_FB_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FB_APP_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
