@@ -65,17 +65,6 @@
   color: rgba(0, 0, 0, 0.8);
 }
 
-.separator span {
-  display: inline-block;
-  background: rgb(44, 44, 44);
-  color: aliceblue;
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  font-size: 14px;
-  line-height: 25px;
-}
-
 @media only screen and (max-device-height: 414px) and (orientation: landscape) {
   .signInForm-wrapper {
     background: rgb(236, 235, 235);

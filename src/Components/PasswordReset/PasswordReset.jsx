@@ -12,7 +12,6 @@ const PasswordReset = () => {
     auth
       .sendPasswordResetEmail(email)
       .then((response) => {
-        console.log("reset", response);
         setMsg("Reset instruction are sent. Please, check your mail!");
         setTimeout(() => setMsg(""), waitingBeforeErrMsgDisapp);
       })
