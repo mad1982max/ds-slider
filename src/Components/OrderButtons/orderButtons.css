@@ -1,0 +1,20 @@
+.btnWrapper button {
+  margin: 10px 0;
+  width: 70%;
+  color: aliceblue;
+  padding: 6px 0;
+}
+
+.toBasketBtn {
+  background: #01b85c;
+}
+
+.btnWrapper .fastBuyBtn {
+  color: black;
+  background: none;
+}
+
+.btnWrapper {
+  background: rgb(255, 255, 255);
+  text-align: center;
+}

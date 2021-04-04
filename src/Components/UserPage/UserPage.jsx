@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import UserCard from "../UserCard/UserCard";
+import SliderContainer from "../Slider/SliderContainer";
 import { UserContext } from "../../Providers/UserProvider";
 import { auth } from "../../firebase";
 import "./userPage.css";
@@ -21,6 +22,7 @@ const UserPage = () => {
         </button>
       </header>
       <UserCard name={displayName} email={email} photoSrc={photoURL}></UserCard>
+      <SliderContainer />
     </>
   );
 };

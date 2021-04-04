@@ -1,0 +1,38 @@
+.productWrapper {
+  background: rgb(255, 255, 255);
+  height: 380px;
+}
+
+.imgWrapper {
+  height: 250px;
+  border: 1px solid rgb(219, 219, 219);
+}
+
+.itemName {
+  margin-top: 10px;
+}
+
+.imgWrapper img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.itemName {
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 5px;
+}
+
+.priceWrapper {
+  font-weight: 500;
+  width: 100%;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+}
+
+.currentPrice {
+  color: #00974c;
+}
