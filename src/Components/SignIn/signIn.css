@@ -1,6 +1,6 @@
 .signInForm-wrapper {
   background: rgb(247, 245, 245);
-  width: 50%;
+  width: 95%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -20,7 +20,7 @@
 }
 
 .signInForm {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -70,8 +70,38 @@
   background: rgb(44, 44, 44);
   color: aliceblue;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 25px;
+}
+
+@media only screen and (max-device-height: 414px) and (orientation: landscape) {
+  .signInForm-wrapper {
+    background: rgb(236, 235, 235);
+    width: 70%;
+    top: 5px;
+    transform: translate(-50%, 0);
+  }
+
+  .info-text {
+    display: none;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .signInForm label {
+    margin-top: 8px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .signInForm-wrapper {
+    width: 70%;
+  }
+  .signInForm {
+    width: 70%;
+  }
 }

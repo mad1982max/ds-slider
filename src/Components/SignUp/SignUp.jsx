@@ -42,7 +42,7 @@ const SignUp = () => {
           createUserWithEmailAndPasswordHandler(email, password, name);
         }}
       >
-        {({ errors, isValid, dirty }) => {
+        {({ isValid, dirty }) => {
           return (
             <>
               <div className="signInForm-wrapper d-flex flex-column">

@@ -59,9 +59,7 @@ const SignIn = () => {
                   <button
                     type="button"
                     className="signInWithGoogle mt-2 mb-2"
-                    onClick={() => {
-                      signInWithGoogle();
-                    }}
+                    onClick={signInWithGoogle}
                   >
                     Sign in with GOOGLE
                   </button>
@@ -71,7 +69,7 @@ const SignIn = () => {
                   Don't have an account? <Link to="/signUp">Sign Up</Link>
                 </div>
                 <div className="forgotPSW p-1 mb-2">
-                  <a href="#">Forgot Password?</a>
+                  <Link to="/passwordReset">Forgot Password?</Link>
                 </div>
               </div>
             </>
