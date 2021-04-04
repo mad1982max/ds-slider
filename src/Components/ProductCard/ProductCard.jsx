@@ -1,3 +1,4 @@
+import Badge from "../../Components/Badge/Badge";
 import "./productCard.css";
 
 const ProductCard = ({ item }) => {
@@ -6,6 +7,8 @@ const ProductCard = ({ item }) => {
       <div className="productWrapper d-flex flex-column">
         <div className="imgWrapper d-flex align-items-center justify-content-center">
           <img src={item.imgUrl} alt={item.name} />
+          <Badge type="avaliability" value={item.avaliability} />
+          <Badge type="status" value={item.status} />
         </div>
 
         <div className="itemName">{item.name}</div>

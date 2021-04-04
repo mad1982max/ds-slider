@@ -1,0 +1,34 @@
+.avaliability,
+.status {
+  position: absolute;
+}
+
+.avaliability {
+  left: 0;
+  bottom: 0;
+}
+
+.avaliable {
+  color: #00974c;
+}
+
+.notAvaliable {
+  color: #b60d07;
+}
+
+.bestSeller {
+  color: #d4a114;
+}
+
+.new {
+  color: #1477d4;
+}
+
+.discount {
+  color: #810d91;
+}
+
+.status {
+  top: 0;
+  right: 0;
+}

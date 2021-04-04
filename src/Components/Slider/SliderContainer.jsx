@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import OrderButtons from "../OrderButtons/OrderButtons";
 import { miniDB } from "../../Assets/db/db";
@@ -11,9 +10,9 @@ import "./slider.css";
 SwiperCore.use([Navigation, A11y]);
 
 const SliderContainer = () => {
-  useEffect(() => {
-    console.log("effect work");
-  }, []);
+  const handleOrder = (productId) => {
+    console.log("checked item:", productId);
+  };
 
   return (
     <>
@@ -21,7 +20,7 @@ const SliderContainer = () => {
         {miniDB.map((item) => (
           <SwiperSlide key={item.id}>
             <ProductCard item={item} />
-            <OrderButtons id={item.id} />
+            <OrderButtons id={item.id} orderFn={handleOrder} />
           </SwiperSlide>
         ))}
       </Swiper>
