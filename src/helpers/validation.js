@@ -20,7 +20,9 @@ const SignUpSchema = Yup.object().shape({
     .required("Required"),
   confirmPassword: Yup.string().when("password", {
     is: (val) => (val && val.length > 0 ? true : false),
-    then: Yup.string().oneOf([Yup.ref("password")], "Passwords missmatched!"),
+    then: Yup.string()
+      .oneOf([Yup.ref("password")], "Passwords missmatched!")
+      .required("Required"),
   }),
 });
 

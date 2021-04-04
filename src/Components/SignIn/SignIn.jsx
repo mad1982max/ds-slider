@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ErrorMsg from "../ErrorMsg/ErrorMsg";
 import { auth, signInWithGoogle } from "../../firebase";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { SignInSchema } from "../../helpers/validation";
+import { waitingBeforeErrMsgDisapp } from "../../constants";
 import "./signIn.css";
 
 const SignIn = () => {
@@ -11,10 +12,9 @@ const SignIn = () => {
   const signInWithEmailAndPasswordHandler = (email, password) => {
     auth.signInWithEmailAndPassword(email, password).catch((error) => {
       setError(error.message);
-      setTimeout(() => setError(""), 3000);
+      setTimeout(() => setError(""), waitingBeforeErrMsgDisapp);
     });
   };
-  const history = useHistory();
   return (
     <>
       <Formik

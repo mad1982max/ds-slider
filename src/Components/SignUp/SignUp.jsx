@@ -4,20 +4,25 @@ import ErrorMsg from "../ErrorMsg/ErrorMsg";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { SignUpSchema } from "../../helpers/validation";
 import { auth, generateUserDocument } from "../../firebase";
+import { waitingBeforeErrMsgDisapp } from "../../constants";
 import "./signUp.css";
 
 const SignUp = () => {
   const [error, setError] = useState(null);
-  const createUserWithEmailAndPasswordHandler = async (email, password) => {
+  const createUserWithEmailAndPasswordHandler = async (
+    email,
+    password,
+    name
+  ) => {
     try {
       const { user } = await auth.createUserWithEmailAndPassword(
         email,
         password
       );
-      generateUserDocument(user, { email });
+      generateUserDocument(user, { displayName: name });
     } catch (error) {
       setError(error.message);
-      setTimeout(() => setError(""), 3000);
+      setTimeout(() => setError(""), waitingBeforeErrMsgDisapp);
     }
   };
 
@@ -33,8 +38,8 @@ const SignUp = () => {
         }}
         validationSchema={SignUpSchema}
         onSubmit={(values) => {
-          const { email, password } = values;
-          createUserWithEmailAndPasswordHandler(email, password);
+          const { email, password, name } = values;
+          createUserWithEmailAndPasswordHandler(email, password, name);
         }}
       >
         {({ errors, isValid, dirty }) => {

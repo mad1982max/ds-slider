@@ -8,7 +8,6 @@ const UserProvider = (props) => {
 
   useEffect(() => {
     auth.onAuthStateChanged((userAuth) => {
-      console.log("changedContext", userAuth);
       setUser(userAuth);
     });
   }, []);
