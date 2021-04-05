@@ -2,11 +2,13 @@ import { useContext } from "react";
 import UserCard from "../UserCard/UserCard";
 import SliderContainer from "../Slider/SliderContainer";
 import { UserContext } from "../../Providers/UserProvider";
+import { useHistory } from "react-router-dom";
 import { auth } from "../../firebase";
 import "./userPage.css";
 
 const UserPage = () => {
   const user = useContext(UserContext);
+  const history = useHistory();
   const { displayName, email, photoURL } = user;
 
   return (
@@ -16,6 +18,7 @@ const UserPage = () => {
           className="signOut"
           onClick={() => {
             auth.signOut();
+            history.push("/");
           }}
         >
           Sign out

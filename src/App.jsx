@@ -1,5 +1,10 @@
 import { useContext } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import PasswordReset from "./Components/PasswordReset/PasswordReset";
 import SignIn from "./Components/SignIn/SignIn";
 import SignUp from "./Components/SignUp/SignUp";
@@ -12,18 +17,15 @@ const App = () => {
 
   return (
     <div className="app">
-      {user ? (
-        <UserPage />
-      ) : (
-        <Router>
-          <Switch>
-            <Route exact path="/" component={SignIn} />
-            <Route exact path="/userPage" component={UserPage} />
-            <Route path="/signUp" component={SignUp} />
-            <Route path="/passwordReset" component={PasswordReset} />
-          </Switch>
-        </Router>
-      )}
+      <Router>
+        {user && <Redirect to="/userPage" />}
+        <Switch>
+          <Route exact path="/" component={SignIn} />
+          <Route exact path="/userPage" component={UserPage} />
+          <Route path="/signUp" component={SignUp} />
+          <Route path="/passwordReset" component={PasswordReset} />
+        </Switch>
+      </Router>
     </div>
   );
 };
